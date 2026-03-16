@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "satheesh/devops-app"
+        DOCKER_IMAGE = "nesa24/myrepo"
     }
 
     stages {
@@ -23,7 +23,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'PASS')]) {
                     sh '''
-                    echo $PASS | docker login -u satheesh --password-stdin
+                    echo $PASS | docker login -u nesa24 --password-stdin
                     docker push $DOCKER_IMAGE
                     '''
                 }
