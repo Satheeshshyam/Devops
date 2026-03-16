@@ -30,7 +30,8 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                sh 'kubectl apply -f jenkins_ci-cd/kubernetes/deployment.yaml'
+                sh 'kubectl apply -f jenkins_ci-cd/kubernetes-microservices/deployment.yaml'
+                sh 'kubectl apply -f jenkins_ci-cd/kubernetes-microservices/service.yaml'
             }
         }
 
