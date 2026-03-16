@@ -18,6 +18,6 @@ spec:
     spec:
       containers:
       - name: devops-container
-        image: satheesh/devops-app
+        image: nesa24/myrepo:latest
         ports:
         - containerPort: 5000
