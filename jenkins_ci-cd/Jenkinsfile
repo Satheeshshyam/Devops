@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "satheesh/devops-app"
+        DOCKER_IMAGE = "nesa24/myrepo"
     }
 
     stages {
         
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t satheesh/devops-app -f jenkins_ci-cd/Dockerfile .'
+                sh 'docker build -t $DOCKER_IMAGE -f jenkins_ci-cd/Dockerfile .'
             }
         }
 
