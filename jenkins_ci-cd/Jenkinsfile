@@ -6,13 +6,7 @@ pipeline {
     }
 
     stages {
-
-        stage('Clone Repository') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Satheeshshyam/Devops.git'
-            }
-        }
-
+        
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t satheesh/devops-app -f jenkins_ci-cd/Dockerfile .'
