@@ -8,7 +8,6 @@ pipeline {
     }
 
     stages {
-            stages {
         stage('Checkout') {
             steps {
                 git url: 'https://github.com/your-org/Devops.git', branch: 'main'
@@ -55,13 +54,15 @@ pipeline {
         }
 
         stage('Deploy to Kubernetes') {
-            steps {
-                dir('kubernetes-microservices') {
+            steps 
+            {
+                dir('kubernetes-microservices') 
+                {
                     sh 'kubectl apply -f deployment.yaml'
                     sh 'kubectl apply -f service.yaml'
                     sh 'kubectl apply -f ingress.yaml'
+                }
             }
         }
-
     }
 }
