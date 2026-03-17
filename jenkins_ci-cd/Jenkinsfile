@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'Node1'
-    }
+    agent any
 
     environment {
         DOCKER_IMAGE = "nesa24/myrepo"
