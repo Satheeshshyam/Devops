@@ -17,9 +17,16 @@ pipeline {
         stage('Terraform Init & Apply') {
             steps {
                 dir('terraform-aws-3tier-architecture') {
-                    sh 'terraform init'
-                    sh 'terraform apply -auto-approve'
-                    sh 'terraform output'
+
+                    sh '''
+                    export TMPDIR=/mnt/jenkins_data/tmp
+                    export TF_PLUGIN_CACHE_DIR=/mnt/jenkins_data/plugin-cache
+                    mkdir -p $TMPDIR
+                    mkdir -p $TF_PLUGIN_CACHE_DIR
+                    terraform init
+                    terraform apply -auto-approve
+                    terraform output
+                    '''
                 }
             }
         }
