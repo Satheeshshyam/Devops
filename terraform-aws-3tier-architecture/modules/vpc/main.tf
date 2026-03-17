@@ -26,3 +26,16 @@ resource "aws_subnet" "private_subnet" {
 
   availability_zone = "us-east-1b"
 }
+
+resource "aws_eks_cluster" "my_eks_cluster" {
+  name     = "my-eks-cluster"
+  role_arn = "arn:aws:iam::772780551435:role/Role1"
+  version  = "1.27"
+
+  vpc_config {
+    subnet_ids = [
+      aws_subnet.public_subnet.id,
+      aws_subnet.private_subnet.id
+    ]
+  }
+}
