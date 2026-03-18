@@ -5,3 +5,8 @@ variable "region" {
 variable "vpc_cidr" {
   default = "10.0.0.0/16"
 }
+variable "admin_ip" {
+  description = "Admin IP for SSH access"
+  type        = list(string)
+  default     = ["0.0.0.0/0"]
+}

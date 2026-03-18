@@ -1,1 +1,4 @@
-variable "vpc_cidr" {}
+variable "vpc_cidr" {
+  description = "CIDR block for the VPC"
+  type        = string
+}

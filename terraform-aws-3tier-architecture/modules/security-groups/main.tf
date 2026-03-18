@@ -23,7 +23,7 @@ resource "aws_security_group" "alb_sg" {
 resource "aws_security_group" "ec2_sg" {
 
   name = "ec2-security-group"
-  description = "Allow traffic from ALB"
+  description = "Allow traffic from EC2"
   vpc_id = var.vpc_id
 
   ingress {
