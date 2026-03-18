@@ -31,7 +31,7 @@ data "aws_iam_policy_document" "eks_worker_nodes" {
 
 resource "aws_eks_cluster" "my_eks_cluster" {
   name     = "my-eks-cluster"
-  role_arn = "arn:aws:iam::772780551435:role/Role1"
+  role_arn = "arn:aws:iam::772780551435:role/Role2"
   version  = "1.29"
 
   vpc_config {
