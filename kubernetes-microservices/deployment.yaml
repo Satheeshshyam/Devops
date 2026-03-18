@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
       - name: microservice-container
-        image: nesa24/myrepo:latest
+        image: nesa24/myrepo:my-app-v1.0.0
         ports:
         - containerPort: 5000
