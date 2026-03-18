@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "nesa24/myrepo"
+        IMAGE_TAG = "my-app-v1.0.0"
         AWS_REGION = "us-east-1"
         CLUSTER_NAME = "my-eks-cluster"
     }
@@ -42,7 +43,7 @@ pipeline {
         
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE -f jenkins_ci-cd/Dockerfile .'
+                sh 'docker build -t $DOCKER_IMAGE:$IMAGE_TAG -f jenkins_ci-cd/Dockerfile .'
             }
         }
 
@@ -55,7 +56,7 @@ pipeline {
                 )]) {
                 sh '''
                 echo $PASS | docker login -u $USER --password-stdin
-                docker push $DOCKER_IMAGE
+                docker push $DOCKER_IMAGE:$IMAGE_TAG
                 '''
                 }
             }
