@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
       - name: microservice-container
-        image: nginx:latest
+        image: nesa24/myrepo:latest
         ports:
-        - containerPort: 80
+        - containerPort: 5000
